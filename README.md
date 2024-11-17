@@ -7,7 +7,7 @@
 4. In project root. Run `docker compose up --build`
 
 ## Running 
-1. If no changes have been made to any files, and you want to start everything up. Run `docker compose up` (**Note, if you **)
+1. If no changes have been made to any files, and you want to start everything up. Run `docker compose up` (_Note - There isn't hot code reloading. You must run `docker compose up --build if you've added a script, etc`_)
 2. When done, run `docker compose down`
 
 Other notes: Periodically, run the following commands:
@@ -16,6 +16,11 @@ Other notes: Periodically, run the following commands:
 - `docker volume prune -a`
 
 to clear up disk space.
+
+## PhpMyAdmin
+Running `docker compose up --build` creates a instance of phpmyadmin.
+
+You can access it at `http://localhost:8080`
 
 ## Flyway and DB Migrations
 We are using Flyway to migrate the database. Flyway is version control for the db. We areable to rebuild the db from scratch everytime we spin up a db container.
