@@ -7,7 +7,7 @@
 4. In project root. Run `docker compose up --build`
 
 ## Running 
-1. If no changes have been made to any files, and you want to start everything up. Run `docker compose up` (_Note - There isn't hot code reloading. You must run `docker compose up --build if you've added a script, etc`_)
+1. If no changes have been made to any files, and you want to start everything up. Run `docker compose up` (_Note - There isn't hot code reloading. You must run `docker compose up --build` if you've added a script, etc_)
 2. When done, run `docker compose down`
 
 Other notes: Periodically, run the following commands:
