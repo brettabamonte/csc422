@@ -1,0 +1,34 @@
+services:
+  csc422_db:
+    container_name: csc422_db
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=csc422
+      - MYSQL_ROOT_PASSWORD=csc422
+  csc422_flyway:
+    container_name: csc422_flyway
+    image: flyway/flyway:latest
+    command: -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+    volumes:
+      - ./db:/flyway/sql
+    environment:
+      - FLYWAY_USER=root
+      - FLYWAY_PASSWORD=csc422
+      - FLYWAY_URL=jdbc:mysql://csc422_db:3306/csc422?allowPublicKeyRetrieval=true #Suspectible to MITM attack, but fine for this proj
+      - FLYWAY_BASELINE_ON_MIGRATE=true
+    depends_on:
+      - csc422_db
+  csc422_phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=csc422_db
+      - PMA_USER=root
+      - PMA_PASSWORD=csc422
+    depends_on:
+      - csc422_db
