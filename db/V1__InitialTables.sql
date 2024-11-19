@@ -54,10 +54,11 @@ CREATE TABLE COURSE (
     teacher_id INT NOT NULL,
     is_active TINYINT(1) DEFAULT 0,
     start_date DATETIME NOT NULL,
-    end_date DATETIME NOT NULL CHECK (end_date > start_date),
+    end_date DATETIME NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
-    FOREIGN KEY (teacher_id) REFERENCES TEACHER(teacher_id)
+    FOREIGN KEY (teacher_id) REFERENCES TEACHER(teacher_id),
+    CHECK (end_date > start_date)
 );
 
 CREATE TABLE ENROLLMENT (
@@ -76,10 +77,11 @@ CREATE TABLE EXAM (
     exam_name VARCHAR(100) NOT NULL,
     exam_description VARCHAR(255),
     start_date DATETIME NOT NULL,
-    end_date DATETIME NOT NULL CHECK (end_date > start_date),
+    end_date DATETIME NOT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
-    FOREIGN KEY (course_id) REFERENCES COURSE(course_id)
+    FOREIGN KEY (course_id) REFERENCES COURSE(course_id),
+    CHECK (end_date > start_date)
 );
 
 CREATE TABLE EXAM_QUESTION (
