@@ -59,7 +59,30 @@ VALUES
 ('ACC101', 'Financial Accounting', 'ACC101-FALL', 'Principles of financial accounting.', 35, 3, 1, '2024-09-01 08:00:00', '2024-12-15 16:00:00', NOW(), NOW()),
 ('BIO101', 'Introduction to Biology', 'BIO101-FALL', 'Fundamentals of biology, including cell biology and genetics.', 40, 5, 0, '2024-09-01 08:00:00', '2024-12-15 16:00:00', NOW(), NOW()),
 ('CHEM101', 'General Chemistry', 'CHEM101-FALL', 'Introduction to general chemistry principles and applications.', 50, 6, 0, '2024-09-01 08:00:00', '2024-12-15 16:00:00', NOW(), NOW()),
-('HIST101', 'World History', 'HIST101-FALL', 'Overview of global history from ancient times to the present.', 25, 7, 0, '2024-09-01 08:00:00', '2024-12-15 16:00:00', NOW(), NOW());
+('HIST101', 'World History', 'HIST101-FALL', 'Overview of global history from ancient times to the present.', 25, 7, 0, '2024-09-01 08:00:00', '2024-12-15 16:00:00', NOW(), NOW()),
+('CS303', 'Algorithms', 'CS303-WNTR', 'Study of algorithms and their complexity.', 30, 5, 1, '2024-12-01 10:00:00', '2024-12-15 16:00:00', NOW(), NOW()),
+('CS304', 'Advanced Programming', 'CS304-WNTR', 'Advanced topics in programming.', 25, 6, 1, '2024-12-01 09:30:00', '2024-12-15 16:00:00', NOW(), NOW()), -- Overlaps with CS303
+('PHYS101', 'Physics I', 'PHYS101-WNTR', 'Fundamentals of physics.', 50, 7, 1, '2024-12-01 10:00:00', '2024-12-15 14:00:00', NOW(), NOW()), -- Overlaps with CS303
+('CS305', 'Machine Learning Basics', 'CS305-WNTR', 'Introduction to machine learning algorithms.', 40, 8, 1, '2024-12-01 11:00:00', '2024-12-15 13:00:00', NOW(), NOW()), -- Overlaps with CS303 and CS304
+('CS306', 'Database Systems', 'CS306-WNTR', 'Foundations of database design and SQL.', 30, 9, 1, '2024-12-01 11:30:00', '2024-12-15 15:30:00', NOW(), NOW()), -- Overlaps with CS305, CS303, and CS304
+('PHYS102', 'Physics II', 'PHYS102-WNTR', 'Continuation of Physics I.', 50, 10, 1, '2024-12-01 12:00:00', '2024-12-15 14:00:00', NOW(), NOW()), -- Overlaps with CS305 and CS306
+('CS307', 'Artificial Intelligence', 'CS307-WNTR', 'Introduction to AI and its applications.', 25, 8, 1, '2024-12-01 13:00:00', '2024-12-15 17:00:00', NOW(), NOW()), -- Overlaps with CS305, CS306, and PHYS102
+('MATH302', 'Calculus III', 'MATH302-WNTR', 'Advanced calculus with multiple variables.', 30, 9, 1, '2024-12-01 12:30:00', '2024-12-15 14:30:00', NOW(), NOW()), -- Overlaps with CS306, PHYS102, and CS307
+('CS202', 'Data Structures', 'CS202-WNTR', 'Introduction to data structures such as stacks, queues, and trees.', 40, 3, 1, DATE_ADD(NOW(), INTERVAL 3 DAY), DATE_ADD(NOW(), INTERVAL 60 DAY), NOW(), NOW()),
+('MATH301', 'Linear Algebra', 'MATH301-WNTR', 'Matrix theory and linear transformations.', 35, 4, 1, DATE_ADD(NOW(), INTERVAL 5 DAY), DATE_ADD(NOW(), INTERVAL 70 DAY), NOW(), NOW()),
+('CS308', 'Cloud Computing', 'CS308-WNTR', 'Introduction to cloud infrastructure and services.', 30, 2, 1, DATE_ADD(NOW(), INTERVAL 2 DAY), DATE_ADD(NOW(), INTERVAL 50 DAY), NOW(), NOW()),
+('BIO201', 'Molecular Biology', 'BIO201-WNTR', 'Advanced study of molecular and cellular biology.', 35, 3, 1, DATE_ADD(NOW(), INTERVAL 4 DAY), DATE_ADD(NOW(), INTERVAL 60 DAY), NOW(), NOW()),
+('STAT101', 'Statistics I', 'STAT101-WNTR', 'Basic concepts of statistical methods and analysis.', 40, 4, 1, DATE_ADD(NOW(), INTERVAL 3 DAY), DATE_ADD(NOW(), INTERVAL 45 DAY), NOW(), NOW()),
+('ENG101', 'English Composition', 'ENG101-WNTR', 'Fundamentals of writing and rhetoric.', 50, 5, 1, DATE_ADD(NOW(), INTERVAL 5 DAY), DATE_ADD(NOW(), INTERVAL 55 DAY), NOW(), NOW()),
+('ART101', 'Introduction to Art', 'ART101-WNTR', 'Overview of art history and techniques.', 30, 6, 1, DATE_ADD(NOW(), INTERVAL 6 DAY), DATE_ADD(NOW(), INTERVAL 70 DAY), NOW(), NOW()),
+('PSY101', 'General Psychology', 'PSY101-WNTR', 'Introduction to psychological concepts and theories.', 40, 7, 1, DATE_ADD(NOW(), INTERVAL 7 DAY), DATE_ADD(NOW(), INTERVAL 65 DAY), NOW(), NOW()),
+('CS401', 'Operating Systems', 'CS401-WNTR', 'Study of operating systems and their design principles.', 30, 8, 1, DATE_ADD(NOW(), INTERVAL 8 DAY), DATE_ADD(NOW(), INTERVAL 60 DAY), NOW(), NOW()),
+('CS402', 'Networks', 'CS402-WNTR', 'Introduction to computer networking concepts.', 35, 9, 1, DATE_ADD(NOW(), INTERVAL 10 DAY), DATE_ADD(NOW(), INTERVAL 70 DAY), NOW(), NOW()),
+('HIST201', 'European History', 'HIST201-WNTR', 'A survey of European history from the Renaissance to the present.', 30, 10, 1, DATE_ADD(NOW(), INTERVAL 9 DAY), DATE_ADD(NOW(), INTERVAL 75 DAY), NOW(), NOW()),
+('CHEM201', 'Organic Chemistry', 'CHEM201-WNTR', 'Fundamentals of organic chemistry and its applications.', 30, 1, 1, DATE_ADD(NOW(), INTERVAL 3 DAY), DATE_ADD(NOW(), INTERVAL 60 DAY), NOW(), NOW()),
+('MATH401', 'Numerical Methods', 'MATH401-WNTR', 'Numerical solutions to mathematical problems.', 25, 2, 1, DATE_ADD(NOW(), INTERVAL 4 DAY), DATE_ADD(NOW(), INTERVAL 50 DAY), NOW(), NOW()),
+('PHYS201', 'Quantum Mechanics', 'PHYS201-WNTR', 'Introduction to quantum mechanics concepts.', 20, 3, 1, DATE_ADD(NOW(), INTERVAL 6 DAY), DATE_ADD(NOW(), INTERVAL 65 DAY), NOW(), NOW());
+
 
 
 INSERT INTO ENROLLMENT (student_id, course_id, status, enrollment_date)
