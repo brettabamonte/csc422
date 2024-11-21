@@ -1,4 +1,4 @@
---View 1
+-- View 1
 CREATE VIEW ActiveStudentsCourses AS
 SELECT 
     S.student_id, 
@@ -16,7 +16,7 @@ JOIN
 WHERE 
     S.is_active = TRUE;
 
---View 2
+-- View 2
 CREATE VIEW CoursesWithTeachers AS
 SELECT 
     C.course_id, 
@@ -28,7 +28,7 @@ FROM
 JOIN 
     TEACHER T ON C.teacher_id = T.teacher_id;
 
---View 3
+-- View 3
 CREATE VIEW DepartmentsWithChairs AS
 SELECT 
     D.department_id, 
@@ -41,7 +41,7 @@ FROM
 JOIN 
     TEACHER T ON D.chair_id = T.teacher_id;
 
---View 4
+-- View 4
 CREATE VIEW CollegesWithDeans AS
 SELECT 
     C.college_id, 
@@ -54,7 +54,7 @@ FROM
 JOIN 
     TEACHER T ON C.dean_id = T.teacher_id;
 
---View 5
+-- View 5
 CREATE VIEW StudentGrades AS
 SELECT 
     SA.student_id, 
@@ -70,7 +70,7 @@ JOIN
     EXAM E ON EQ.exam_id = E.exam_id;
 
 
---View 6
+-- View 6
 CREATE VIEW EnrollmentsPerDepartment AS
 SELECT 
     D.department_id, 
@@ -85,7 +85,7 @@ JOIN
 GROUP BY 
     D.department_id, D.name;
 
---View 7
+-- View 7
 CREATE VIEW ExamsPerCourse AS
 SELECT 
     C.course_id, 
@@ -99,7 +99,7 @@ FROM
 JOIN 
     COURSE C ON E.course_id = C.course_id;
 
---View 8
+-- View 8
 
 CREATE VIEW TeachersWithCourses AS
 SELECT 
@@ -113,7 +113,7 @@ FROM
 JOIN 
     COURSE C ON T.teacher_id = C.teacher_id;
 
---View 9
+-- View 9
 CREATE VIEW StudentsWithCourses AS
 SELECT 
     S.student_id, 
@@ -128,7 +128,7 @@ JOIN
 JOIN 
     COURSE C ON E.course_id = C.course_id;
 
---View 10
+-- View 10
 CREATE VIEW StudentAnswersDetails AS
 SELECT 
     SA.student_id, 
@@ -140,7 +140,7 @@ SELECT
 FROM 
     STUDENT_ANSWER SA;
 
---View 11
+-- View 11
 CREATE VIEW StudentPassFail AS
 SELECT 
     SA.student_id, 
@@ -157,7 +157,7 @@ JOIN
 JOIN 
     EXAM E ON EQ.exam_id = E.exam_id;
 
---View 12
+-- View 12
 CREATE VIEW EnrollmentCountPerCourse AS
 SELECT 
     C.course_id, 
@@ -170,7 +170,7 @@ LEFT JOIN
 GROUP BY 
     C.course_id, C.course_name;
 
---View 13
+-- View 13
 CREATE VIEW AverageGradePerCourse AS
 SELECT 
     C.course_id, 
@@ -196,7 +196,7 @@ JOIN
 GROUP BY 
     C.course_id, C.course_name;
 
---View 14
+-- View 14
 CREATE VIEW TeachersWithAdminRoles AS
 SELECT 
     T.teacher_id, 
@@ -213,7 +213,7 @@ LEFT JOIN
 WHERE 
     D.chair_id IS NOT NULL OR C.dean_id IS NOT NULL;
 
---View 15
+-- View 15
 CREATE VIEW CourseCapacityAndEnrollment AS
 SELECT 
     C.course_id, 
@@ -227,7 +227,7 @@ LEFT JOIN
 GROUP BY 
     C.course_id, C.course_name, C.capacity;
 
---View 16
+-- View 16
 CREATE VIEW InactiveCourses AS
 SELECT 
     C.course_id, 
@@ -237,7 +237,7 @@ FROM
 WHERE 
     C.is_active = FALSE;
 
---View 17
+-- View 17
 CREATE VIEW StudentsNotLoggedIn AS
 SELECT 
     S.student_id, 
@@ -249,7 +249,7 @@ FROM
 WHERE 
     DATEDIFF(CURRENT_DATE, S.last_login) > 30;
 
---View 18
+-- View 18
 CREATE VIEW CollegeDepartmentCourses AS
 SELECT 
     CO.college_id, 
@@ -266,7 +266,7 @@ JOIN
     COURSE C ON D.department_id = C.teacher_id;
 
 
---View 19
+-- View 19
 CREATE VIEW QuestionsPerExam AS
 SELECT 
     E.exam_id, 
@@ -280,7 +280,7 @@ GROUP BY
     E.exam_id, E.exam_name;
 
 
---View 20
+-- View 20
 CREATE VIEW SecondAttemptPerformance AS
 SELECT 
     SA.student_id, 
@@ -296,7 +296,7 @@ FROM
     STUDENT_ANSWER SA;
 
 
---View 21
+-- View 21
 CREATE VIEW CoursesStartingSoon AS
 SELECT 
     C.course_id, 
@@ -307,7 +307,7 @@ FROM
 WHERE 
     C.start_date BETWEEN CURRENT_DATE AND DATE_ADD(CURRENT_DATE, INTERVAL 30 DAY);
 
---View 22
+-- View 22
 CREATE VIEW StudentsCompletedCourses AS
 SELECT 
     S.student_id, 
@@ -323,7 +323,7 @@ WHERE
         WHERE E.student_id = S.student_id AND C.is_active = TRUE
     );
 
---View 23
+-- View 23
 CREATE VIEW OverlappingCourses AS
 SELECT 
     C1.course_id AS course1_id, 
@@ -340,7 +340,7 @@ WHERE
     AND C2.start_date < C1.end_date;
 
 
---View 24
+-- View 24
 CREATE VIEW StudentEnrollmentHistory AS
 SELECT 
     S.student_id, 
@@ -358,7 +358,7 @@ JOIN
 ORDER BY 
     S.student_id, E.enrollment_date;
 
---View 25
+-- View 25
 CREATE VIEW TeacherSummary AS
 SELECT 
     T.teacher_id, 
